@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+
+<head th:replace="snippets.html :: name_head"></head>
+<title>Login</title>
+<body class="auth">
+
+<nav th:replace="snippets.html :: name_site_navbar"></nav>
+
+
+<div class="container">
+
+<div class="row">
+<div class="col-6" style="left:270px;top:120px">
+	
+	<div class = "card">
+  	<div class="headerCard">
+    	Login
+  	</div>
+  	<div class="card-body">
+		<form class="form" id="login-form" method="POST" th:action="@{/session/login}">
+			<div class="form-group">
+				<label for="email" class="col-sm-10 col-form-label">Email</label>
+			    <div class="col-sm-12">
+			      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+			    </div>
+			</div>
+			<div class="form-group">
+			    <label for="password" class="col-sm-10 col-form-label">Password</label>
+			    <div class="col-sm-12">
+			      <input type="password" class="form-control" name="password" id="password" placeholder="Enter password" required>
+			    </div>
+			</div>
+			<button type="submit" class="btn" id="login">Login</button>
+		</form>
+	</div>
+	</div>
+	<div style = "margin: 20px;"></div>
+		<div class="card text-danger" id = "errorLabel" hidden="true">
+			<div class = "card-body">
+				[[${info.getMessage()}]]
+			</div>
+		</div>
+	<label type = "text" id = "msg" hidden>[[${info.getMessage()}]]</label>
+
+	
+
+</div> <!-- Col -->
+</div> <!-- Row -->
+
+</div> <!-- Container-->
+
+<footer th:replace="snippets.html :: name_footer"></footer>
+<script th:src="@{/static/auth.js}"/></script>
+</body>
+
+</html>

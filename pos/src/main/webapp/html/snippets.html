@@ -1,0 +1,133 @@
+<head th:fragment="name_head" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="">
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="baseUrl" th:attr="content=${baseUrl}">
+<script src="https://kit.fontawesome.com/c30beb553f.js" crossorigin="anonymous"></script>
+
+    <style>
+		.navbar-brand {
+			font-family: 'Lato', sans-serif;
+			font-size: 48px;
+			color: #a6a6a6;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			text-align: center;
+		}
+	</style>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+<link rel="stylesheet" th:href="@{/static/app.css}">
+</head>
+
+<nav class="navbar navbar-expand-lg mb-1" th:fragment="name_site_navbar">
+  <a class="navbar-brand" th:href="@{/}">
+    BillMaster
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/site/login}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/site/signup}">Signup</a>
+      </li>
+    </ul>
+    
+<!--    <ul class="navbar-nav ml-auto">-->
+<!--       <li class="nav-item">-->
+<!--        <a class="btn btn-primary" th:href="@{/site/login}">Login</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+ 
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg mb-1" th:fragment="name_app_navbar">
+  <a class="navbar-brand" th:href="@{/}">
+    BillMaster
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/ui/home}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/ui/admin}">Admin</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id = "brand-link" th:href="@{/ui/brand}">Brand</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id = "product-link" th:href="@{/ui/product}">Product</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id = "inventory-link" th:href="@{/ui/inventory}">Inventory</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id = "order-link" th:href="@{/ui/order}">Order</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reports
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" th:href="@{/ui/brandReport}">Brand Report</a>
+                <a class="dropdown-item" th:href="@{/ui/inventoryReport}">Inventory Report</a>
+                <a class="dropdown-item" th:href="@{/ui/salesReport}">Sales Report</a>
+                <a class="dropdown-item" th:href="@{/ui/dailyReport}">Daily Report</a>
+            </div>
+        </li>
+    </ul>
+    
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-link">
+            [[${info.getRole()}]]
+            &nbsp;&gt;&nbsp;
+        </li>
+	    <li class="nav-link">
+	    	[[${info.getEmail()}]]
+	    	&nbsp;&gt;&nbsp;
+	    </li>
+
+	    <li class="nav-item">
+	    	<a class="nav-link" th:href="@{/session/logout}">Logout</a>
+	    </li>
+    </ul>
+    
+        
+  </div>
+</nav>
+
+<footer class="footer  mt-1" th:fragment="name_footer">
+	BillMaster 2023
+	&nbsp;
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+	<script th:src="@{/static/app.js}"/></script>
+	<script th:src="@{/static/papaparse.min.js}"/></script>
+    <script th:inline="javascript">
+    $(document).ready(setActive());
+  /*<![CDATA[*/
+      var userRole = /*[[${info.getRole()}]]*/ 'operator';
+    /*]]>*/
+</script>
+</footer>
+
+

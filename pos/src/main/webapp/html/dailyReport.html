@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+
+<head th:replace="snippets.html :: name_head"></head>
+<title>Daily Report</title>
+<body>
+
+<nav th:replace="snippets.html :: name_app_navbar"></nav>
+
+<div class="container">
+    <br>
+    <div style="margin-bottom: 40px">
+        <h1>Daily Report</h1>
+    </div>
+
+    <div style = "margin-bottom: 30px">
+        <div style = "margin-bottom: 20px">
+            <form class="form-inline" id="daily-report-form">
+                <div class="input-group mb-3" style = "margin-right: 48px">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputStartDate">Start Date: </label>
+                    </div>
+                    <input type = "date" id = "inputStartDate" name = "startDate">
+                </div>
+                <div class="input-group mb-3" style = "margin-right: 48px">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputEndDate">End Date: </label>
+                    </div>
+                    <input type = "date" id = "inputEndDate" name = "endDate">
+                </div>
+            </form>
+        </div>
+        <button type="button" class="btn btn-primary" id="generate-daily-report">Generate Report</button>
+    </div>
+
+    <div>
+        <table class="table table-striped" id="daily-report-table">
+            <thead class = "thead-dark">
+            <tr>
+                <th scope="col">Sr No.</th>
+                <th scope="col">Date</th>
+                <th scope="col"># Invoiced Orders</th>
+                <th scope="col"># Invoiced items</th>
+                <th scope="col">Total Revenue(Rs.)</th>
+            </tr>
+            </thead>
+            <div>
+                <tbody>
+
+                </tbody>
+            </div>
+        </table>
+    </div>
+</div> <!-- Container end-->
+
+<footer th:replace="snippets.html :: name_footer"></footer>
+
+<script th:src="@{/static/dailyReport.js}"/></script>
+
+</body>
+
+</html>

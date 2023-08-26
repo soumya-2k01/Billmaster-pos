@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+
+<head th:replace="snippets.html :: name_head"></head>
+<title>Home</title>
+<body>
+
+<nav th:replace="snippets.html :: name_app_navbar"></nav>
+
+<div class="container">
+	<br>
+	<h2>Admin</h2>
+	<br>
+ <!-- Top row-->
+	<div class="row">
+		 <div class="col-2">
+			 <a th:href="@{/ui/admin}" title="Admin" align = "center"> <i class="fas fa-user"></i> </a><br>
+			 <a th:href="@{/ui/admin}" class = "sub">Admin</a>
+		 </div>
+	</div>
+
+	<hr>
+	<h2>Store</h2>
+	<br>
+	<div class="row">
+		<div class="col-2">
+			<a th:href="@{/ui/brand}" title="Brand" align = "center">  <i class="fas fa-tag"></i> </a><br>
+			<a th:href="@{/ui/brand}" class = "sub">Brand</a>
+		</div>
+		<div class="col-2">
+			<a th:href="@{/ui/product}" title="Product" align = "center"> <i class="fas fa-barcode"></i></a><br>
+			<a th:href="@{/ui/product}" class = "sub">Product</a>
+		</div>
+		<div class="col-2">
+			<a th:href="@{/ui/inventory}" title="Inventory" align = "right"><i class="fas fa-warehouse"></i></a><br>
+			<a th:href="@{/ui/inventory}" class = "sub">Inventory</a>
+		</div>
+		<div class="col-2">
+			<a th:href="@{/ui/order}" title="Order"> <i class="fas fa-cart-shopping"></i></a><br>
+			<a th:href="@{/ui/order}" class = "sub" style = "margin-left:10px">Order</a>
+		</div>
+	</div>
+
+	<hr>
+	<h2>Reports</h2>
+	<br>
+	<div class="row">
+		<div class="col-2">
+			<a th:href="@{/ui/brandReport}" title="Brand Report" align = "center">  <i class="fas fa-file-invoice"></i> </a><br>
+			<a th:href="@{/ui/brandReport}" class = "sub">Brand</a>
+		</div>
+		<div class="col-2">
+			<a th:href="@{/ui/inventoryReport}" title="Inventory Report" align = "center" style = "margin-left: 12px">  <i class="fas fa-file-invoice"></i> </a><br>
+			<a th:href="@{/ui/inventoryReport}" class = "sub">Inventory</a>
+		</div>
+		<div class="col-2">
+			<a th:href="@{/ui/salesReport}" title="Sales Report" align = "center">  <i class="fas fa-file-invoice"></i> </a><br>
+			<a th:href="@{/ui/salesReport}" class = "sub">Sales</a>
+		</div>
+		<div class="col-2">
+			<a th:href="@{/ui/dailyReport}" title="Daily Report" align = "center">  <i class="fas fa-file-invoice"></i> </a><br>
+			<a th:href="@{/ui/dailyReport}" class = "sub">Daily</a>
+		</div>
+	</div>
+
+
+</div> <!-- Container end-->
+
+<footer th:replace="snippets.html :: name_footer"></footer>
+<script th:src="@{/static/home.js}"/></script>
+
+</body>	
+
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+
+<head th:replace="snippets.html :: name_head"></head>
+<title>Sales Report</title>
+<body>
+
+<nav th:replace="snippets.html :: name_app_navbar"></nav>
+
+<div class="container">
+    <br>
+    <div style="margin-bottom: 40px">
+        <h1>Sales Report</h1>
+    </div>
+
+    <div style = "margin-bottom: 30px">
+        <div style = "margin-bottom: 20px">
+            <form class="form-inline" id="sales-report-form">
+                <div class="input-group mb-3" style = "margin-right: 48px">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputStartDate">Start Date: </label>
+                    </div>
+                    <input type = "date" id = "inputStartDate" name = "startDate">
+                </div>
+                <div class="input-group mb-3" style = "margin-right: 48px">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputEndDate">End Date: </label>
+                    </div>
+                    <input type = "date" id = "inputEndDate" name = "endDate">
+                </div>
+
+                <div class="input-group mb-3" style = "margin-right: 48px">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputBrand">Brand: </label>
+                    </div>
+                    <select class="custom-select" id="inputBrand" name = "brand">
+
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputCategory">Category: </label>
+                    </div>
+                    <select class="custom-select" id="inputCategory" name = "category">
+
+                    </select>
+                </div>
+
+            </form>
+        </div>
+        <button type="button" class="btn btn-primary" id="generate-sales-report">Generate Report</button>
+    </div>
+
+    <div>
+        <table class="table table-striped" id="sales-report-table">
+            <thead class = "thead-dark">
+            <tr>
+                <th scope="col">Sr No.</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Category</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Revenue(Rs.)</th>
+            </tr>
+            </thead>
+            <div>
+                <tbody>
+
+                </tbody>
+            </div>
+        </table>
+    </div>
+</div> <!-- Container end-->
+
+<footer th:replace="snippets.html :: name_footer"></footer>
+
+<script th:src="@{/static/salesReport.js}"/></script>
+
+</body>
+
+</html>

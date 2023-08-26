@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html lang="en">
+
+<head th:replace="snippets.html :: name_head"></head>
+<title>Inventory Report</title>
+<body>
+
+<nav th:replace="snippets.html :: name_app_navbar"></nav>
+
+<div class="container">
+  <br>
+  <div style="margin-bottom: 40px">
+    <h1>Inventory Report</h1>
+  </div>
+
+  <!--    center align krna hai-->
+  <div style = "margin-bottom: 30px">
+    <div style = "margin-bottom: 20px">
+      <form class="form-inline" id="inventory-report-form">
+        <div class="input-group mb-3" style = "margin-right: 48px">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputBrand">Brand: </label>
+          </div>
+          <select class="custom-select" id="inputBrand">
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputCategory">Category: </label>
+          </div>
+          <select class="custom-select" id="inputCategory">
+
+          </select>
+        </div>
+
+      </form>
+    </div>
+    <button type="button" class="btn btn-primary" id="generate-inventory-report">Generate Report</button>
+  </div>
+
+  <div>
+    <table class="table table-striped" id="inventory-report-table">
+      <thead class = "thead-dark">
+      <tr>
+        <th scope="col">Sr No.</th>
+        <th scope="col">Brand Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Quantity</th>
+      </tr>
+      </thead>
+      <div>
+        <tbody>
+
+        </tbody>
+      </div>
+    </table>
+  </div>
+</div> <!-- Container end-->
+
+<footer th:replace="snippets.html :: name_footer"></footer>
+
+<script th:src="@{/static/inventoryReport.js}"/></script>
+
+</body>
+
+</html>

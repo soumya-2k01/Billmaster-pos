@@ -1,0 +1,163 @@
+<!doctype html>
+
+<html lang="en">
+
+<head th:replace="snippets.html :: name_head"></head>
+<title>Brand</title>
+<body>
+
+<nav th:replace="snippets.html :: name_app_navbar"></nav>
+
+<div class="container">
+    <br>
+    <div>
+        <h1>Brand</h1>
+        <br>
+        <button type="button" class="btn btn-success" id="create-brand" style="margin-right:10px"><i class="fa-solid fa-plus" style="margin-right:8px"></i>Add Brand</button>
+        <button type="button" class="btn btn-info" id="upload-data"><i class="fa-solid fa-upload" style="margin-right:8px"></i>Upload</button>
+    </div>
+    <div class="modal fade" data-backdrop="static" data-keyboard="false" id="add-brand-modal" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><b>Add Brand</b></h5>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline" id="brand-form">
+                        <div class="form-group">
+                            <label class=" col-sm-2 col-form-label"
+                                   for="inputBrand">&nbsp;&nbsp;<b class="required">Brand</b>&nbsp;&nbsp;</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="inputBrand" name="brand" maxlength = "15"
+                                       placeholder="Enter Brand Name" type="text" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label" for="inputCategory"
+                                   style="margin-top:10px;margin-bottom:10px;"><b class="required">Category</b></label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="inputCategory" name="category" maxlength = "15"
+                                       placeholder="Enter Category" type="text" required>
+                            </div>
+                        </div>
+                        <!--           <input type="hidden" name="id" >-->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-dark" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-success" id="add-brand" type="button">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blank Row -->
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+
+        <!-- Table -->
+        <div class="col-12">
+            <table class="table table-striped" id="brand-table">
+                <thead class = "thead-dark">
+                <tr>
+                    <th scope="col">Sr No.</th>
+                    <th scope="col">Brand Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <div>
+                    <tbody>
+
+                    </tbody>
+                </div>
+
+
+            </table>
+
+        </div>
+    </div>
+
+    <!-- Brand Edit Modal -->
+    <div class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" id="edit-brand-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit brand</h5>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline" id="brand-edit-form">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label"
+                                   for="inputBrand">&nbsp;&nbsp;<b class="required">Brand</b>&nbsp;&nbsp;</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="brand" maxlength = "15"
+                                       placeholder="Enter Brand Name" type="text" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label" for="inputCategory" maxlength = "15"
+                                   style="margin-top:10px;margin-bottom:10px;"><b class="required">Category</b></label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="category"
+                                       placeholder="Enter Category" type="text" required>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" >
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="update-brand">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Brand Upload Modal -->
+    <div class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" id="upload-brand-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Brand</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="brand-file">
+                        <input type="file" class="custom-file-input" id="brandFile">
+                        <label class="custom-file-label" for="brandFile" id="brandFileName">Choose file</label>
+                    </div>
+                    <a th:href="@{/sample/brand.tsv}" target="_blank">Download Sample</a>
+                    <br>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" id="download-errors">Download Errors</button>
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-info" id="process-data">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> <!-- Container end-->
+
+<footer th:replace="snippets.html :: name_footer"></footer>
+
+<script th:src="@{/static/brand.js}"/></script>
+
+</body>
+
+</html>
